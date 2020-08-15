@@ -4,12 +4,20 @@ class AddTask extends Component {
   state = {
     text: "",
     isPriority: false,
+    date: "",
   };
 
   handleTextChange = (e) => {
     const text = e.target.value;
     this.setState({
       text,
+    });
+  };
+
+  handlePriorChange = (e) => {
+    const isChecked = e.target.checked;
+    this.setState({
+      isPriority: isChecked,
     });
   };
 
@@ -23,7 +31,12 @@ class AddTask extends Component {
           onChange={this.handleTextChange}
         />
         <label htmlFor="prior">
-          <input type="checkbox" id="prior" value={this.state.isPriority} />
+          <input
+            type="checkbox"
+            id="prior"
+            value={this.state.isPriority}
+            onChange={this.handlePriorChange}
+          />
           Priority
         </label>
         <br />
